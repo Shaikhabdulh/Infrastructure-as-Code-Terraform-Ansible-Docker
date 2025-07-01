@@ -1,3 +1,15 @@
+#!/bin/bash
+# Update the system
+yum update -y
+
+# Install NGINX
+amazon-linux-extras install nginx1 -y
+
+# Start and enable NGINX
+systemctl start nginx
+systemctl enable nginx
+
+# Create a basic Facebook-like homepage
 cat > /usr/share/nginx/html/index.html << 'EOF'
 <!DOCTYPE html>
 <html lang="en">
