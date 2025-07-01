@@ -1,0 +1,11 @@
+digraph G {
+  rankdir = "RL";
+  node [shape = rect, fontname = "sans-serif"];
+  "aws_instance.web" [label="aws_instance.web"];
+  "aws_key_pair.tf_key" [label="aws_key_pair.tf_key"];
+  "aws_security_group.web_sg" [label="aws_security_group.web_sg"];
+  "tls_private_key.generated" [label="tls_private_key.generated"];
+  "aws_instance.web" -> "aws_key_pair.tf_key";
+  "aws_instance.web" -> "aws_security_group.web_sg";
+  "aws_key_pair.tf_key" -> "tls_private_key.generated";
+}
