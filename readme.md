@@ -1,5 +1,3 @@
----
-```markdown
 # 🚀 Terraform & Ansible Infrastructure Lab
 This project demonstrates modern **Infrastructure as Code (IaC)** using **Terraform**, **Ansible**, and **Shell scripting** to provision and configure AWS infrastructure — from EC2 instances to VPCs and NGINX deployment with a mock UI page.
 ---
@@ -89,8 +87,12 @@ chmod +x deploy_nginx.sh
 * 🧼 Clean up resources after demo using `terraform destroy`
 ---
 ## 🖼️ Diagrams / Screenshots
-* \[`ec2-sg.png`]\(./Managing EC2 & SG With Terraform/ec2-sg.png): EC2 Instance + Security Group diagram
-* [`infrastructure.png`](./Terraform_Remote_Backend/infrastructure.png): Full infrastructure overview (VPC, subnets, etc.)
+
+### EC2 Security Group
+![EC2 Security Group](./Managing%20EC2%20%26%20SG%20With%20Terraform/ec2-sg.png)
+
+### Infrastructure Overview
+![Infrastructure Overview](./Managing%20EC2%20%26%20SG%20With%20Terraform/infrastructure.png)
 ---
 ## 🧩 Project Goals
 * Automate infra + software setup
