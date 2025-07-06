@@ -1,0 +1,8 @@
+- name: Test connection using password from vault
+  hosts: all
+  gather_facts: no
+  vars_files:
+    - vault.yml
+  tasks:
+    - name: Ping remote hosts
+      ansible.builtin.ping:
