@@ -1,10 +1,20 @@
+```md
 # Ansible Nginx Deployment
 
 This project uses Ansible to deploy a basic Nginx web server and serve a static HTML page.
 
 ## 📁 Project Structure
 
-<pre> Ansible/ ├── files/ │ └── index.html # Static webpage to be served ├── inventory # Ansible inventory file with target hosts ├── nginx_playbook.yml # Main playbook to install and configure Nginx └── vault.yml # Encrypted file containing secrets (Ansible Vault) </pre>
+```
+
+Ansible/
+├── files/
+│   └── index.html            # Static webpage to be served
+├── inventory                 # Ansible inventory file with target hosts
+├── nginx\_playbook.yml        # Main playbook to install and configure Nginx
+└── vault.yml                 # Encrypted file containing secrets (Ansible Vault)
+
+````
 
 ## 🔧 Requirements
 
@@ -15,28 +25,31 @@ This project uses Ansible to deploy a basic Nginx web server and serve a static 
 
 ## 🚀 Usage
 
-1. **Run the playbook**:
+Run the playbook:
 
 ```bash
 ansible-playbook -i inventory nginx_playbook.yml
+````
 
+If using Ansible Vault:
 
+```bash
 ansible-playbook -i inventory nginx_playbook.yml --ask-vault-pass
-<!--
-## About Ansible Vault
+```
 
-**Ansible Vault** lets you encrypt sensitive data (like passwords or keys) in your Ansible files.  
-Use it to keep secrets safe in playbooks or variable files, especially when sharing code or using version control.
-I am using vault to store ssh and sudo user password.
--->
-<!--
-## About Ansible Vault
-**My Ansible Vault Password Admin@123**  
--->
+## 🔐 Ansible Vault
+
+Ansible Vault is used to encrypt sensitive data like passwords or SSH credentials.
+
+To edit or view the vault file:
+
+```bash
 ansible-vault edit vault.yml
 ansible-vault view vault.yml
+```
 
-📄 License
+> 💡 **Never share your vault password publicly.**
+
+## 📄 License
+
 This project is licensed under the MIT License.
-
-Let me know if you want it customized for multiple roles or environments.
