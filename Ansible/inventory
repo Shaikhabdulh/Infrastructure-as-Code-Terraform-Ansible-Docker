@@ -1,0 +1,11 @@
+Ubuntu:
+  hosts:
+    192.168.1.7:
+        ansible_user: ubuntu
+    192.168.1.8:
+        ansible_user: ubuntu
+    192.168.1.9:
+        ansible_user: ubuntu
+  vars:
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+    #Disable host key checking
