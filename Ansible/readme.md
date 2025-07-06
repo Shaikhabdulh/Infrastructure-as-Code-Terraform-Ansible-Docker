@@ -4,13 +4,7 @@ This project uses Ansible to deploy a basic Nginx web server and serve a static 
 
 ## 📁 Project Structure
 
-Ansible/
-├── files/
-│ └── index.html # Static webpage to be served
-├── inventory # Ansible inventory file with target hosts
-├── nginx_playbook.yml # Main playbook to install and configure Nginx
-└── vault.yml # Encrypted file containing secrets (Ansible Vault)
-
+<pre> Ansible/ ├── files/ │ └── index.html # Static webpage to be served ├── inventory # Ansible inventory file with target hosts ├── nginx_playbook.yml # Main playbook to install and configure Nginx └── vault.yml # Encrypted file containing secrets (Ansible Vault) </pre>
 
 ## 🔧 Requirements
 
