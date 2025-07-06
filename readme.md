@@ -1,17 +1,18 @@
+---
+```markdown
 # 🚀 Terraform & Ansible Infrastructure Lab
 This project demonstrates modern **Infrastructure as Code (IaC)** using **Terraform**, **Ansible**, and **Shell scripting** to provision and configure AWS infrastructure — from EC2 instances to VPCs and NGINX deployment with a mock UI page.
 ---
 ## 📁 Project Structure
-
 ```
 .
 ├── Ansible/                            # NGINX deployment using Ansible
 ├── Managing EC2 & SG With Terraform/  # EC2 instance and security group setup
 ├── Terraform\_Remote\_Backend/          # VPC creation with remote state backend (S3)
-├── User\_Data/                          # Shell script to auto-configure EC2 with HTML UI
+├── User\_Data/                         # Shell script to auto-configure EC2 with HTML UI
+├── deploy\_nginx.sh                    # Full automation script (Terraform + Ansible)
 ├── .gitignore
 └── readme.md
-
 ````
 ---
 ## 📦 Modules / Folders Explained
@@ -21,6 +22,7 @@ This project demonstrates modern **Infrastructure as Code (IaC)** using **Terraf
 | `Managing EC2 & SG With Terraform/` | Provisions EC2 with SSH & HTTP access and generates SSH key            |
 | `Terraform_Remote_Backend/`         | Creates VPC using module and stores state remotely (S3 backend)        |
 | `User_Data/`                        | Bash script to install NGINX and deploy a mock "Fakebook" login page   |
+| `deploy_nginx.sh`                  | One-click deployment: Terraform EC2 + Ansible NGINX setup              |
 ---
 ## 🧰 Tech Stack
 - **Terraform** – Provision AWS infrastructure
@@ -36,7 +38,7 @@ This project demonstrates modern **Infrastructure as Code (IaC)** using **Terraf
 cd "Managing EC2 & SG With Terraform"
 terraform init
 terraform apply
-```
+````
 ### 🔹 Remote VPC with S3 Backend
 ```bash
 cd "Terraform_Remote_Backend"
@@ -57,7 +59,19 @@ cd User_Data
 chmod +x setup_fakebook.sh
 sudo ./setup_fakebook.sh
 ```
-Then visit `http://<EC2-IP>` in a browser.
+Then visit: `http://<EC2-IP>`
+---
+## 🔄 Full Automation Script (Terraform + Ansible)
+You can use `deploy_nginx.sh` to:
+* Apply Terraform to spin up EC2
+* Extract EC2 public IP
+* Create inventory for Ansible
+* Deploy NGINX with Ansible
+* Prompt for cleanup (`terraform destroy`)
+```bash
+chmod +x deploy_nginx.sh
+./deploy_nginx.sh
+```
 ---
 ## ❓ When & Why to Use Each Folder
 | Folder                              | When to Use                         | Why It’s Useful                                            |
@@ -72,14 +86,29 @@ Then visit `http://<EC2-IP>` in a browser.
 * ✅ Use **Terraform remote backend (S3 + DynamoDB)** for team/production use
 * 🧪 Always run `terraform plan` before `apply`
 * 🔒 Secure private keys (e.g., `chmod 400`)
+* 🧼 Clean up resources after demo using `terraform destroy`
 ---
 ## 🖼️ Diagrams / Screenshots
-You can enhance your documentation with visual aids:
-* [`ec2-sg.png`](./Managing EC2 & SG With Terraform/ec2-sg.png): EC2 Instance + Security Group diagram
+* \[`ec2-sg.png`]\(./Managing EC2 & SG With Terraform/ec2-sg.png): EC2 Instance + Security Group diagram
 * [`infrastructure.png`](./Terraform_Remote_Backend/infrastructure.png): Full infrastructure overview (VPC, subnets, etc.)
 ---
-
+## 🧩 Project Goals
+* Automate infra + software setup
+* Learn end-to-end IaC workflow
+* Modularize deployment by separating responsibilities
+* Showcase real-world DevOps stack
+---
 ## 📜 License
-
 This repository is licensed under the **MIT License**.
 Feel free to use, adapt, and contribute.
+---
+## 🔗 GitHub Project Link
+[GitHub Repository](https://github.com/Shaikhabdulh/Infrastructure-as-Code-Terraform-Ansible-Docker)
+```
+Let me know if you'd like:
+- Version badges
+- Image previews
+- Multiple environment examples (`dev`, `staging`, `prod`)
+- CI/CD integration steps
+Would you like me to update this `README.md` directly for you again?
+```
