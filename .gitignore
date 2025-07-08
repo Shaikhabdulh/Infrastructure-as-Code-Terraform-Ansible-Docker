@@ -1,2 +1,3 @@
 .terraform/
 ./Terraform_Remote_Backend/.terraform/
+*/.terraform/
