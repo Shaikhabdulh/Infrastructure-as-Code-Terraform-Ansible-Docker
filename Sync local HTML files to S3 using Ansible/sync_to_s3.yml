@@ -1,0 +1,21 @@
+---
+- name: Sync local HTML files to S3 bucket
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    s3_bucket: web-server-1-tiga
+    local_dir: ./site/
+    region: us-east-1
+
+  tasks:
+    - name: Upload HTML files to S3
+      community.aws.aws_s3:
+        bucket: "{{ s3_bucket }}"
+        mode: put
+        object: "{{ item }}"
+        src: "{{ local_dir }}{{ item }}"
+        region: "{{ region }}"
+        permission: public-read
+      loop: "{{ lookup('fileglob', local_dir + '*.html', wantlist=True) | map('basename') | list }}"
